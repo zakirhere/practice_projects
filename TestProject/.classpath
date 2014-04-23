@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/admin/Box Documents/Zack Data/GitHub/Zak_Libraries/java-mail-1.4.4.jar"/>
+	<classpathentry kind="lib" path="/Users/admin/Box Documents/Zack Data/GitHub/Zak_Libraries/jersey-bundle-1.17.1.jar"/>
+	<classpathentry kind="lib" path="/Users/admin/Box Documents/Zack Data/GitHub/Zak_Libraries/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/admin/Box Documents/Zack Data/GitHub/Zak_Libraries/junit-4.11.jar"/>
+	<classpathentry kind="lib" path="/Users/admin/Box Documents/Zack Data/GitHub/Zak_Libraries/poi-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="/Users/admin/Box Documents/Zack Data/GitHub/Zak_Libraries/selenium-server-standalone-2.32.0.jar"/>
+	<classpathentry kind="lib" path="/Users/admin/Box Documents/Zack Data/GitHub/Zak_Libraries/testng-6.8.5.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
