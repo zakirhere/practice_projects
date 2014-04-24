@@ -1,2 +1,0 @@
-INDEX VERSION 1.126+/Users/admin/Box Documents/Zack Data/GitHub/Practice_Projects/.metadata/.plugins/org.eclipse.jdt.core
-1922020610.index
