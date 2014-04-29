@@ -11,34 +11,55 @@ import org.testng.annotations.Test;
 
 public class BrianAssignment {
 	
-	static String inputString = "testing a string repeat value of string in a string";
-	public static Map<String, Integer> myMap;
-	static String[] unsortedStringArray;
+	static String inputString = "Zakir is QA developer. Nasir is developer. Zakir is great guy.";
+	static Map<String, Object> outputMap = new HashMap<String, Object>();
+	static String[] sentenceArray;
 	
-	@Test
-	public void SplitAndSortListInAscendingOrder() {
-		myMap = new HashMap<String, Integer>();
-		unsortedStringArray = inputString.split(" ");
-		Arrays.sort(unsortedStringArray);
-		System.out.println(unsortedStringArray.toString());
+	
+	public static void main(String[] args) {
+		BrianAssignment t1 = new BrianAssignment();
+		t1.PrepareSentenceArray();
+		t1.getWordFrequency();
+		
+		System.out.println(outputMap.toString());
+		
 	}
-
-	@Test (dependsOnMethods = "SplitAndSortListInAscendingOrder")
-	public void getWordsWithCounts() {
-		for(int i=0; i<unsortedStringArray.length; i++) {
-			if(myMap.containsKey(unsortedStringArray[i]))
-				myMap.put(unsortedStringArray[i], myMap.get(unsortedStringArray[i]) + 1);
-			else
-				myMap.put(unsortedStringArray[i], 1);
+	
+	public void PrepareSentenceArray() {
+		sentenceArray = inputString.split("\\.");
+	}
+	
+	public void getWordFrequency() {
+		String[] sentString;
+		int count;
+		for(int sentCount=0; sentCount<sentenceArray.length; sentCount++) {
+			sentenceArray[sentCount] = sentenceArray[sentCount].trim();
+			sentString = sentenceArray[sentCount].split(" ");
+			for(int wordind=0; wordind<sentString.length; wordind++) {
+				if(outputMap.containsKey(sentString[wordind])) {
+					count = ((sentAttr) outputMap.get(sentString[wordind])).oCount;
+					outputMap.put(sentString[wordind], count + 1);
+				
+				}
+				else
+				{
+					
+					outputMap.put(sentString[wordind], 1);
+				}
+			}
 		}
-		
-		System.out.println(myMap);
 	}
 	
-	public void getWordsWithCountsAndSentenceReference() {
-		
+	public boolean isMyMapsContains(String keyValue) {
+		if(outputMap.containsKey(keyValue))
+			return true;
+		else
+			return false;
 	}
 	
+	public Object setAttr(int c, int r) {
+		sentAttr obj = new sentAttr(c, r);
+	}
 	
 	
 }

@@ -1,7 +1,8 @@
 This belongs to BrianTest class
-1) Count the repeated words with the count number
-2) Give reference to the sentence in which that word is found
-3) Create a method to arrange the words in ascending order 
-keeping the sentence reference.
+1) Split the sentence with (.) to sentenceArray
+2) Using sentenceArray individually count the that word is found.
+3) Also using index of sentenceArray get the reference of the sentence.
+4) Create a method to arrange the words in ascending order 
+
 
 

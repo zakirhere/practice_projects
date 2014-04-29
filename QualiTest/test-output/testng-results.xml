@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="71685" started-at="2014-04-25T16:35:57Z" finished-at="2014-04-25T16:37:09Z">
+  <suite name="Default suite" duration-ms="31" started-at="2014-04-28T22:26:59Z" finished-at="2014-04-28T22:26:59Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="71685" started-at="2014-04-25T16:35:57Z" finished-at="2014-04-25T16:37:09Z">
+    <test name="Default test" duration-ms="31" started-at="2014-04-28T22:26:59Z" finished-at="2014-04-28T22:26:59Z">
       <class name="CodingTest.BrianAssignment">
-        <test-method status="PASS" signature="SplitAndSortListInAscendingOrder()[pri:0, instance:CodingTest.BrianAssignment@16debe8]" name="SplitAndSortListInAscendingOrder" duration-ms="41179" started-at="2014-04-25T09:35:57Z" finished-at="2014-04-25T09:36:38Z">
+        <test-method status="PASS" signature="mainRun()[pri:0, instance:CodingTest.BrianAssignment@2147545b]" name="mainRun" duration-ms="15" started-at="2014-04-28T15:26:59Z" finished-at="2014-04-28T15:26:59Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SplitAndSortListInAscendingOrder -->
-        <test-method status="PASS" signature="getWordsWithCounts()[pri:0, instance:CodingTest.BrianAssignment@16debe8]" name="getWordsWithCounts" duration-ms="30475" started-at="2014-04-25T09:36:38Z" depends-on-methods="CodingTest.BrianAssignment.SplitAndSortListInAscendingOrder" finished-at="2014-04-25T09:37:09Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getWordsWithCounts -->
+        </test-method> <!-- mainRun -->
       </class> <!-- CodingTest.BrianAssignment -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

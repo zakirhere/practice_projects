@@ -5,7 +5,7 @@
     <classes>
       <class name="CodingTest.BrianAssignment">
         <methods>
-          <include name="getWordsWithCounts"/>
+          <include name="mainRun"/>
         </methods>
       </class> <!-- CodingTest.BrianAssignment -->
     </classes>
