@@ -5,8 +5,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
-import org.testng.annotations.Test;
 
 
 public class BrianAssignment {
@@ -20,8 +20,11 @@ public class BrianAssignment {
 		BrianAssignment t1 = new BrianAssignment();
 		t1.PrepareSentenceArray();
 		t1.getWordFrequency();
-		
-		System.out.println(outputMap.toString());
+		t1.showOutput();
+//		sentAttr out = (sentAttr) outputMap.get("Nasir");
+//		
+//		System.out.println("Reference = " + out.reference);
+//		System.out.println("Count = " + out.oCount);
 		
 	}
 	
@@ -32,33 +35,43 @@ public class BrianAssignment {
 	public void getWordFrequency() {
 		String[] sentString;
 		int count;
-		for(int sentCount=0; sentCount<sentenceArray.length; sentCount++) {
-			sentenceArray[sentCount] = sentenceArray[sentCount].trim();
-			sentString = sentenceArray[sentCount].split(" ");
-			for(int wordind=0; wordind<sentString.length; wordind++) {
-				if(outputMap.containsKey(sentString[wordind])) {
-					count = ((sentAttr) outputMap.get(sentString[wordind])).oCount;
-					outputMap.put(sentString[wordind], count + 1);
-				
+		String ref;
+		for(int i=0; i<sentenceArray.length; i++) {
+			sentenceArray[i] = sentenceArray[i].trim();
+			sentString = sentenceArray[i].split(" ");
+			for(int j=0; j<sentString.length; j++) {
+				if(outputMap.containsKey(sentString[j])) {
+					count = ((sentAttr) outputMap.get(sentString[j])).oCount;
+					ref = ((sentAttr) outputMap.get(sentString[j])).reference;
+					sentAttr st = new sentAttr(count++);
+					if(ref != null)
+						st.reference = ref + ", " + Integer.toString(i+1);
+					outputMap.put(sentString[j], st);
+					
 				}
 				else
 				{
-					
-					outputMap.put(sentString[wordind], 1);
+					sentAttr st = new sentAttr(1);
+					st.reference = Integer.toString(i+1);
+					outputMap.put(sentString[j], st);
 				}
 			}
 		}
 	}
 	
-	public boolean isMyMapsContains(String keyValue) {
-		if(outputMap.containsKey(keyValue))
-			return true;
-		else
-			return false;
-	}
 	
-	public Object setAttr(int c, int r) {
-		sentAttr obj = new sentAttr(c, r);
+	public void showOutput() {
+		//sentAttr out = (sentAttr) outputMap.get("Nasir");
+		String[] keyArray;
+		Set<String> mySet = outputMap.keySet();
+		
+		keyArray = (String[]) mySet.toArray();
+		for(int i=0; i<outputMap.size(); i++) {
+			sentAttr out = (sentAttr) outputMap.get(keyArray[i]);
+			
+			System.out.println("Reference = " + out.reference);
+			System.out.println("Count = " + out.oCount);
+		}
 	}
 	
 	
