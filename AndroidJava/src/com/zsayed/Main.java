@@ -4,6 +4,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Pattern;
 
 import org.json.JSONArray;
@@ -13,20 +18,36 @@ import org.json.JSONObject;
  * Created by ZSayed on 7/9/2015.
  */
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ParseException {
 
         
-    	String input_file = String.join("\n", Files.readAllLines(Paths.get("C://Users//zsayed//Desktop//deleteme.json")));
+    }
+    
+    public static long getElapsedTime(String RecordedTime) throws ParseException {
+//    	String RecordedTime = "2015-07-24T21:34:55.000-04:00";
+    	RecordedTime = RecordedTime.replaceFirst("T", " ");
+    	String getTimeStamp = RecordedTime.substring(0, 19);
 
-        //System.out.println(input_file);
-//        parseJSON(input_file);
-        
-    	JSONObject json = new JSONObject(input_file);
+    	DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    	Date myDateStamp = format.parse(getTimeStamp);
+    	Date currentDateStamp = new Date();
+
+    	long timeDiff = currentDateStamp.getTime() - myDateStamp.getTime();
+    	return timeDiff/1000 + 60;
+    }
+    
+    public static String displayTimeDiff(long timeInSeconds) {
+    	int getMins = 0;
+    	int getSeconds = 0;
+    	if(timeInSeconds > 59) {
+    		getMins = (int) (timeInSeconds/60);
+    		getSeconds = (int) (timeInSeconds % 60);
+    	}
+    	else {
+    		return Integer.toString((int) timeInSeconds) + " (seconds)";
+    	}
     	
-    	String parser_string = "posts.comments[0].cm1()";
-        System.out.println(smartJsonParser(json, parser_string));
-        
-        
+    	return Integer.toString(getMins) + ":" + Integer.toString(getSeconds) + " (min:sec)";
     }
 
     public static void parseJSON(String responseText) {
@@ -42,7 +63,6 @@ public class Main {
     
     
     public static myResult getArrayValues(String elm) {
-//    	String elm = "jsonArray[5]";
 		String[] splitted = elm.split(Pattern.quote("["));
 		System.out.println(splitted[0]);
 		int Index = Integer.parseInt(splitted[1].replaceAll(Pattern.quote("]"), ""));
